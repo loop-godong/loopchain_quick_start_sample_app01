@@ -14,7 +14,7 @@ class UserScore(ScoreBase):
 
     def query(self, params):
         logging.debug("in UserScore Query...")
-        return params
+        return str(params) + "test compose"
 
     def info(self):
         # TODO Score info (package.json) 을 로드하여 json object 를 리턴하여야 한다.
