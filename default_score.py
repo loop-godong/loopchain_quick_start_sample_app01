@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import json
 from loopchain.blockchain import ScoreBase
 
 
@@ -14,8 +15,9 @@ class UserScore(ScoreBase):
 
     def query(self, params):
         logging.debug("in UserScore Query...")
-        params['test'] = "my test"
-        return params
+        json_params = json.loads(params)
+        json_params['test'] = "my test"
+        return json.dumps(json_params)
 
     def info(self):
         # TODO Score info (package.json) 을 로드하여 json object 를 리턴하여야 한다.
